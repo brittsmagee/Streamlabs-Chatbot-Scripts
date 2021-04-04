@@ -25,14 +25,14 @@
     },
     "emoteList": {
         "type": "textbox",
-        "value": "HSWP, TwitchRPG, MorphinTime, duDudu, HumbleLife, PJSalt",
+        "value": "thebee20Heart, thebee20Lurk, thebee20BJ, thebee2069, Kappa, LUL",
         "label": "List of used Emotes",
         "tooltip": "List of the Emotes you want to use. Seperate them per Comma. More Emotes = Less Chance",
         "group": "General"
     },
     "superEmote": {
         "type": "textbox",
-        "value": "CurseLit",
+        "value": "thebee20Hit",
         "label": "Set the Super Jackpot Emote",
         "tooltip": "Emote that triggers the Super Jackpot when 3 of them.",
         "group": "General"
