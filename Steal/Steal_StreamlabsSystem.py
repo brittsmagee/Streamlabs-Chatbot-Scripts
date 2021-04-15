@@ -38,8 +38,8 @@ def Init():
 			"onCooldown": "$user, $command is still on cooldown for $cd minutes!",
 			"userCooldown": 300,
 			"onUserCooldown": "$user $command is still on user cooldown for $cd minutes!",
-			"responseWon": "$user stole $reward $currency from $victim",
-			"responseLost": "$user couldn't steal any $currency from $victim and lost $reward $currency",
+			"responseWon": "$dummy $user stole $reward $currency from $targetid",
+			"responseLost": "$dummy $user couldn't steal any $currency from $targetid and lost $reward $currency",
 			"responseNotEnoughPoints": "$user you need $cost $currency to steal."
 		}
 
@@ -68,15 +68,14 @@ def Execute(data):
 		else:
 			Parent.RemovePoints(userId, username, settings["costs"])
 			isStealing = Parent.GetRandom(0, 2)
-			userList = Parent.GetViewerList()
 
 			while True:
-				victimId = userList[Parent.GetRandom(0, len(userList))]
-
+				victimId = Parent.GetDisplayName("$targetid")
+				
 				if victimId != userId:
 					break
 
-			victim = Parent.GetDisplayName(victimId)
+			victim = Parent.GetDisplayName("$targetid")
 			reward = Parent.GetRandom(settings["minReward"], settings["maxReward"] + 1)
 
 			if reward > points:
@@ -93,7 +92,7 @@ def Execute(data):
 
 				outputMessage = settings["responseLost"]
 
-			outputMessage = outputMessage.replace("$victim", victim)
+			outputMessage = outputMessage.replace("$targetid", victim)
 			outputMessage = outputMessage.replace("$reward", str(reward))
 
 			if settings["useCooldown"]:
