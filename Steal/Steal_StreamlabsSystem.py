@@ -41,6 +41,7 @@ def Init():
 			"responseWon": "$user stole $reward $currency from $victim",
 			"responseLost": "$user couldn't steal any $currency from $victim and lost $reward $currency",
 			"responseNotEnoughPoints": "$user you need $cost $currency to steal."
+			"responserNoPoints": "$victim doesn't even have enough $currency to steal."
 		}
 
 def Execute(data):
@@ -49,7 +50,7 @@ def Execute(data):
 		userId = data.User			
 		username = data.UserName
 		points = Parent.GetPoints(userId)
-		victimId = data.User
+		victimId = Parent.GetDisplayName(data.User)
 
 		if points < settings["costs"]:
 			outputMessage = settings["responseNotEnoughPoints"]
@@ -68,15 +69,15 @@ def Execute(data):
 				outputMessage = ""
 		else:
 			Parent.RemovePoints(userId, username, settings["costs"])
-			isStealing = Parent.GetDisplayName
+			isStealing = Parent.GetDisplayName(data.User)
 			
 			while True:
-				victimId = Parent.GetDisplayName
+				victimId = Parent.GetDisplayName(data.User)
 
 				if victimId != userId:
 					break
 
-			victim = Parent.GetDisplayName(victimId)
+			victim = Parent.GetDisplayName(data.User)
 			reward = Parent.GetDisplayName(settings["minReward"], settings["maxReward"] + 1)
 
 			if reward > points:
