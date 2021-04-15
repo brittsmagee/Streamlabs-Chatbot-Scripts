@@ -1,4 +1,4 @@
-mport clr
+import clr
 import sys
 import json
 import os
