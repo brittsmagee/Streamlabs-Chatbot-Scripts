@@ -67,17 +67,17 @@ def Execute(data):
 				outputMessage = ""
 		else:
 			Parent.RemovePoints(userId, username, settings["costs"])
-			isStealing = Parent.GetRandom(0, 2)
+			isStealing = Parent.userId
 			userList = Parent.GetViewerList()
 
 			while True:
-				victimId = userList[Parent.GetRandom(0, len(userList))]
+				victimId =Parent.userId
 
 				if victimId != userId:
 					break
 
 			victim = Parent.GetDisplayName(victimId)
-			reward = Parent.GetRandom(settings["minReward"], settings["maxReward"] + 1)
+			reward = Parent.userId(settings["minReward"], settings["maxReward"] + 1)
 
 			if reward > points:
 				reward = points	
