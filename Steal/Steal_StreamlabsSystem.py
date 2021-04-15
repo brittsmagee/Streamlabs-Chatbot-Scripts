@@ -41,7 +41,6 @@ def Init():
 			"responseWon": "$user stole $reward $currency from $victim",
 			"responseLost": "$user couldn't steal any $currency from $victim and lost $reward $currency",
 			"responseNotEnoughPoints": "$user you need $cost $currency to steal."
-			"responserNoPoints": "$victim doesn't even have enough $currency to steal."
 		}
 
 def Execute(data):
