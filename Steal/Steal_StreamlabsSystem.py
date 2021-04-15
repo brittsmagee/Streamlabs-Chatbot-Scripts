@@ -301,9 +301,11 @@ def OpenReadMe():
 
 def Tick():
 	return
-					cdi = Parent.GetCooldownDuration(ScriptName, settings["command"])
-					cd = str(cdi / 60) + ":" + str(cdi % 60).zfill(2) 
-					outputMessage = settings["onCooldown"]
+
+				cdi = Parent.GetCooldownDuration(ScriptName, settings["command"])
+				cd = str(cdi / 60) + ":" + str(cdi % 60).zfill(2) 
+				
+			outputMessage = settings["onCooldown"]
 				else:
 					cdi = Parent.GetUserCooldownDuration(ScriptName, settings["command"], userId)
 					cd = str(cdi / 60) + ":" + str(cdi % 60).zfill(2) 
