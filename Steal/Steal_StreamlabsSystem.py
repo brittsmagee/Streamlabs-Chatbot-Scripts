@@ -67,11 +67,11 @@ def Execute(data):
 				outputMessage = ""
 		else:
 			Parent.RemovePoints(userId, username, settings["costs"])
-			isStealing = Parent.GetRandom(0, 2)
+			isStealing = Parent.userId(0, 2)
 			userList = Parent.GetViewerList()
 
 			while True:
-				victimId = userList[Parent.GetRandom(0, len(userList))]
+				victimId = userList[Parent.userId(0, len(userList))]
 
 				if victimId != userId:
 					break
