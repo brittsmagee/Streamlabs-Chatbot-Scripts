@@ -74,7 +74,7 @@ def ScriptToggled(state):
 	return
 
 def Init():
-	global settingsimport clr
+	global settingsimport
 import sys
 import json
 import os
